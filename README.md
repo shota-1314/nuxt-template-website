@@ -1,11 +1,51 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 テンプレート
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+以下のパッケージが使えます
 
-## Setup
+Vuetify
 
-Make sure to install the dependencies:
+https://vuetifyjs.com/ja/getting-started/installation/
 
+Tailwind CSS
+
+https://tailwindcss.com/
+
+node-postgres
+
+https://node-postgres.com/
+
+@sidebase/nuxt-auth
+
+https://github.com/sidebase/nuxt-auth
+
+## Postgres
+.envに以下を記述
+```bash
+DB_USER = 'xxxxxxxxxxxxxxxxxxx'
+DB_HOST = 'xxxxxxxxxxxxxxxxxxx'
+DB_NAME = 'xxxxxxxxxxxxxxxxxxx'
+DB_PASSWORD = 'xxxxxxxxxxxxxxxxxxx'
+DB_PORT = '5432'
+```
+
+## 認証
+
+@sidebase/nuxt-authを使いGoogleアカウントによる
+
+認証が利用できます。
+
+.envに以下を追記
+
+クライアントIDの取得方法は以下
+
+https://support.google.com/workspacemigrate/answer/9222992?hl=ja
+
+```bash
+GOOGLE_CLIENT_ID = 'xxxxxxxxxxxxxxxxxxx'
+GOOGLE_CLIENT_SECRET = 'xxxxxxxxxxxxxxxxxxx'
+```
+
+## セットアップ
 ```bash
 # npm
 npm install
@@ -20,9 +60,7 @@ yarn install
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## 開発環境実行
 
 ```bash
 # npm
@@ -72,4 +110,3 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
