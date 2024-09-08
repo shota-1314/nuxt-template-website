@@ -133,12 +133,13 @@ export class Database {
    * SQLクエリを実行し、結果を返します。
    * クエリ実行に失敗した場合は、エラーメッセージをログに記録し、ロールバックを行い、エラーをスローします。
    * @param {string} sql 実行するSQLクエリ
+   * @param {any[]} params SQLクエリのパラメーター
    * @returns {Promise<GenericObject[]>} クエリ結果の配列（キーが文字列、値が任意の型のオブジェクト）
    * @throws {Error} クエリ実行エラーが発生した場合にスローされます
    */
-  public async query(sql: string): Promise<GenericObject[]> {
+  public async query(sql: string, params: any[] = []): Promise<GenericObject[]> {
     try {
-      const result = await this.dbConnection.query(sql)
+      const result = await this.dbConnection.query(sql, params)
       console.info(`${getCurrentTime()} : クエリ実行成功`)
       return result.rows as GenericObject[]
     }
@@ -149,7 +150,6 @@ export class Database {
       else {
         console.error(`${getCurrentTime()} : クエリ実行に失敗しました: 不明なエラー`)
       }
-      await this.dbConnection.query('ROLLBACK')
       throw e
     }
   }

@@ -12,7 +12,7 @@ export default defineEventHandler(async () => {
     db.startTransaction()
 
     // SQLクエリを実行して、データを取得
-    const response = await db.query('SELECT * FROM mst_tweet')
+    const response = await db.query('SELECT * FROM sample')
 
     // トランザクションをコミット
     db.commit()
